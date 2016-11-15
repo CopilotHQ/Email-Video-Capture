@@ -4,90 +4,121 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+// Aspect Ratio Mixin
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background: #EAEAEA;
+  position: relative;
+  top: 20%;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+#video {
+  display: none;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+#aw-pageTitle {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+
+  h1 {
+    font-size: 24px;
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+#youTube {
+  $formborderradius:  6px;
+  $formfontsize:      18px;
+  $formboxshadow:     rgba(0,0,0,0.1) 0px 7px 6px -5px;
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
+  margin: 30px 0 20px;
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+  .form-group input {
+    border: none;
+    border-bottom: 1px solid #CCC;
+    border-radius: $formborderradius;
+    box-shadow: $formboxshadow;
+    box-sizing: border-box;
+    font-size: $formfontsize;
+    height: auto;
+    padding: .5em .75em;
+    margin-right: 6px;
+  }
+
+  .input-group {
+    box-shadow: $formboxshadow;
+
+    .form-control:first-child,
+    .btn {
+      font-size: $formfontsize;
+      box-sizing: border-box;
+      height: auto;
+      border: none;
+      border-bottom: 1px solid #CCC;
+    }
+
+    .form-control:first-child {
+      border-radius: $formborderradius 0 0 $formborderradius;
+      box-shadow: none;
+      padding: .5em 0 .5em .75em;
+    }
+
+    .input-group-btn:last-child > .btn {
+      border-radius: 0 $formborderradius $formborderradius 0;
+      padding: .5em 1.25em;
+    }
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
+#aw-cardContainer {
+  display: none;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+#embedCode {
+  position: relative;
+
+  textarea {
+    width: 100%;
+    border-color: #CCC;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    display: none;
+    margin-top: 1em;
+    padding: .5em;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  &:before {
+    background: #CCC;
+    border-radius: 3px;
+    box-sizing: border-box;
+    content: 'Almost done! Hit cmd+c (mac) or ctrl+c (windows) to copy your embed code.';
+    display: none;
+    height: auto;
+    margin: 0 2%;
+    padding: .5em;
+    position: absolute;
+    top: -10px;
+    text-align: center;
+    width: 96%;
+    z-index: 100;
   }
 }

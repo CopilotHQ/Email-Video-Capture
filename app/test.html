@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>emailvideocapture</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<style>
+      .aw-card {
+        background: white;
+        border: 1px solid #EAEAEA;
+        border-radius: 4px;
+        box-shadow: rgba(0,0,0,0.1) 0px 4px 4px -3px;
+        font-family: helvetica, arial, sans-serif;
+        font-size: 16px;
+        margin: 10px auto;
+        max-width: 360px;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .aw-card .aw-card__thumbnail {
+        background-color: #235;
+        background-size: cover;
+        background-position: center center;
+        /*width: 100%;*/
+
+      	position: relative;
+      	padding-bottom: 49%; /* 16:9 */
+      	padding-top: 25px;
+      	height: 0;
+      }
+
+      .aw-card .aw-card__thumbnail .aw-thumbnail {
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      }
+
+      .aw-card .aw-card__content {
+        padding: 1em;
+      }
+
+      .aw-card .aw-card__header {
+        font-weight: bold;
+      }
+
+      .aw-card form .af-element {
+        padding: 0 1em .5em;
+      }
+
+      .aw-card form .af-element label {
+        font-weight: normal;
+        font-size: .9em;
+      }
+
+      .aw-card form .af-element input {
+        width: 100%;
+        border-color: #CCC;
+        border-radius: 3px;
+        border-style: solid;
+        border-width: 1px;
+        box-sizing: border-box;
+        padding: .5em;
+      }
+
+      .aw-card form input[type="submit"] {
+        background: #33b98a;
+        border: none;
+        border-radius: 0 0 3px 3px;
+        color: white;
+        display: block;
+        padding: .75em 1em;
+        margin-top: 1em;
+        width: 100%;
+      }
+
+      .aw-card form input[type="submit"]:hover {
+        background: #209c71;
+      }
+      </style>
+      <div class="aw-card">
+        <div class="sixteen-nine aw-card__thumbnail" id="aw-thumbnail">
+          <div class="aw-thumbnail"></div>
+        </div>
+
+        <div class="aw-card__content">
+          Subscribe to our newsletter to get access to:
+          <div id="aw-content"></div>
+        </div>
+
+        <form method="post" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl">
+          <div style="display: none;">
+            <input type="hidden" name="meta_split_id" value="">
+            <input type="hidden" name="listname" value="">
+            <input type="hidden" name="redirect" value="" id="redirect_3407c4d31e2ba398625a7ac9883b17d8">
+
+            <input type="hidden" name="meta_message" value="1">
+            <input type="hidden" name="meta_required" value="name,email">
+
+            <input type="hidden" name="meta_tooltip" value="">
+          </div>
+          <div id="af-body-1511431928" class="af-body af-standards">
+            <div class="af-element">
+              <label class="previewLabel" for="awf_field-87136739">Name:</label>
+              <div class="af-textWrap">
+                <input id="awf_field-87136739" type="text" name="name" class="text" value="" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " tabindex="500">
+              </div>
+              <div class="af-clear"></div>
+            </div>
+            <div class="af-element">
+              <label class="previewLabel" for="awf_field-87136740">Email: </label>
+              <div class="af-textWrap"><input class="text" id="awf_field-87136740" type="text" name="email" value="" tabindex="501" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} ">
+              </div><div class="af-clear"></div>
+            </div>
+            <input name="submit" id="af-submit-image-1511431928" type="submit" value="Get Access!" tabindex="502">
+          </div>
+          <div style="display: none;"><img src="https://forms.aweber.com/form/displays.htm?id=jKyMjCzMjJxMHA==" alt=""></div>
+        </form>
+      </div>
+
+      <div class="af-element poweredBy" style="text-align: center; font-size: 9px;">
+        <p><a href="https://www.aweber.com" title="AWeber Email Marketing" target="_blank" rel="nofollow">Powered by AWeber Email Marketing</a></p>
+      </div>
+      </body>
+      </html>
