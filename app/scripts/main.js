@@ -52,9 +52,7 @@ $('#buildEmbed').on('click', function() {
     }
   });
 
-  if(!$('#youTube input').val()) {
-
-  } else {
+  if($('#youTube input').val()) {
     fillCard();
   }
 
@@ -63,23 +61,11 @@ $('#buildEmbed').on('click', function() {
   // $('#video').fadeIn('medium');
 });
 
-
-function getYouTubeId(url) {
-  var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-  var match = url.match(regExp);
-  if (match && match[2].length == 11) {
-    return match[2];
-  } else {
-    //error
-  }
-}
-
 function fillCard() {
   var youTubeURL = $('#youTubeURL').val(),
       youTubeID = getYouTubeId(youTubeURL),
       youTubeAPI = 'AIzaSyAMZJhvhaUGqsBuzxWYc8Df8hQz6t2igyA',
-      AWeberListID = $('#AWeberID').val(),
-      embeddable = $('#aw-cardContainer').html();
+      AWeberListID = $('#AWeberID').val();
 
   // Get YouTube Info from API
   $.ajax({
@@ -92,13 +78,19 @@ function fillCard() {
         var thumbnail = data.items[0].snippet.thumbnails.standard.url,
             title = data.items[0].snippet.title,
             channelTitle = data.items[0].snippet.channelTitle;
+
+        // Set card content based on YouTube URL and AWeber list id
         $('#aw-thumbnail').css('background-image', 'url(' + thumbnail + ')');
         $('#aw-content').html(`
           <div class="aw-card__header">` + title + `</div>
         `);
         $('input[name="listname"]').val(AWeberListID);
         $('input[name="redirect"]').val(youTubeURL);
+
+        // Set embed snippet code
+        var embeddable = $('#aw-cardContainer').html();
         $('#embedCode textarea').val(embeddable).fadeIn(1200);
+
         $('#aw-pageTitle').slideUp(200);
         $('#aw-cardContainer').css('opacity', 0)
           .slideDown(400)
@@ -113,6 +105,18 @@ function fillCard() {
   });
 }
 
+function getYouTubeId(url) {
+  var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  var match = url.match(regExp);
+  if (match && match[2].length == 11) {
+    return match[2];
+  } else {
+    // TODO: Get error validation in here
+  }
+}
+
+
+// Show copy tooltip on textare focus
 $('textarea').on('focus', function() {
   $(this).select();
   $('#copyHelper').css('opacity', 0)
