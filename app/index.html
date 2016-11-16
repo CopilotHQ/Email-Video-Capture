@@ -31,28 +31,38 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center" id="aw-pageTitle">
-        <h1>The AWeber YouTube Lockbox</h1>
+        <img src="images/youTubeLockbox.png" alt="logo" width="100" style="margin-top: 1em;" />
+        <h1 style="margin-top: .25em;">Email Vault</h1>
         <p>
           Create a simple, embeddable YouTube video lead magnet teaser by adding your AWeber list ID and a link to an unlisted YouTube Video below.
         </p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <form class="form-inline text-center" id="youTube">
+    <form class="text-center" id="youTube">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3">
           <div class="form-group">
-            <input type="text" class="form-control" id="AWeberID" placeholder="AWeber List ID">
+            <input type="text" class="form-control" data-required="true" id="AWeberID" placeholder="AWeber List ID">
           </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="form-group">
+            <input type="text" class="form-control" id="adTracking" placeholder="AWeber Ad Tracking">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
           <div class="input-group">
-            <input type="url" class="form-control" id="youTubeURL" placeholder="YouTube URL">
+            <input type="url" class="form-control" data-required="true" id="youTubeURL" placeholder="YouTube URL">
             <span class="input-group-btn">
               <button class="btn btn-primary" type="button" id="buildEmbed">Build!</button>
             </span>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+    </form>
 
     <div class="row" id="aw-cardContainer"><style>
       .aw-card {
@@ -111,7 +121,7 @@
         box-sizing: border-box;
         font-size: 16px;
       }
-      
+
       .aw-card form .af-element input[type="text"],
       .aw-card form .af-element input[type="url"] {
         width: 100%;
@@ -153,7 +163,7 @@
             <input type="hidden" name="meta_split_id" value="" />
             <input type="hidden" name="listname" value="" />
             <input type="hidden" name="redirect" value="" id="redirect_3407c4d31e2ba398625a7ac9883b17d8" />
-
+            <input type="hidden" name="meta_adtracking" value="" />
             <input type="hidden" name="meta_message" value="1" />
             <input type="hidden" name="meta_required" value="name,email" />
 

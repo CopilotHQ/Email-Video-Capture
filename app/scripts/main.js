@@ -44,7 +44,7 @@ function stopVideo() {
 }
 
 $('#buildEmbed').on('click', function() {
-  $('#youTube input').each(function(){
+  $('#youTube input[data-required="true"]').each(function(){
     if(!$(this).val()) {
       $(this).css('background-color', '#fae7e7');
     } else {
@@ -65,7 +65,8 @@ function fillCard() {
   var youTubeURL = $('#youTubeURL').val(),
       youTubeID = getYouTubeId(youTubeURL),
       youTubeAPI = 'AIzaSyAMZJhvhaUGqsBuzxWYc8Df8hQz6t2igyA',
-      AWeberListID = $('#AWeberID').val();
+      AWeberListID = $('#AWeberID').val(),
+      AWeberAdTracking = $('#adTracking').val();
 
   // Get YouTube Info from API
   $.ajax({
@@ -85,6 +86,7 @@ function fillCard() {
           <div class="aw-card__header">` + title + `</div>
         `);
         $('input[name="listname"]').val(AWeberListID);
+        $('input[name="meta_adtracking"]').val(AWeberAdTracking);
         $('input[name="redirect"]').val(youTubeURL);
 
         // Set embed snippet code

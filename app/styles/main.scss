@@ -4,8 +4,12 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+$formborderradius:  6px;
+$formfontsize:      18px;
+$formboxshadow:     rgba(0,0,0,0.1) 0px 7px 6px -5px;
+
 body {
-  background: #EAEAEA;
+  background: #F5F5F5;
   position: relative;
   top: 20%;
 }
@@ -25,10 +29,6 @@ body {
 }
 
 #youTube {
-  $formborderradius:  6px;
-  $formfontsize:      18px;
-  $formboxshadow:     rgba(0,0,0,0.1) 0px 7px 6px -5px;
-
   margin: 30px 0 20px;
 
   .form-group input {
@@ -40,7 +40,6 @@ body {
     font-size: $formfontsize;
     height: auto;
     padding: .5em .75em;
-    margin-right: 6px;
   }
 
   .input-group {
@@ -68,6 +67,16 @@ body {
   }
 }
 
+.btn-primary {
+  background: #0094f2;
+  transition-duration: .3s;
+
+  &:hover,
+  &:focus {
+    background: #1179bf;
+  }
+}
+
 #aw-cardContainer {
   display: none;
 }
@@ -76,17 +85,21 @@ body {
   position: relative;
 
   textarea {
-    border-color: #CCC;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
+    border: 0;
+    border-radius: $formborderradius;
+    box-shadow: $formboxshadow;
     box-sizing: border-box;
     display: none;
     height: 80px;
     margin-top: 1em;
     max-width: 100%;
+    overflow: hidden;
     padding: .5em;
     width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &:before {
