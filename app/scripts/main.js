@@ -70,15 +70,13 @@ function fillCard() {
 
   // Get YouTube Info from API
   $.ajax({
-      url: 'https://www.googleapis.com/youtube/v3/videos?id=' + youTubeID + '&key=' + youTubeAPI + '&part=snippet,contentDetails,statistics,status',
+      url: 'https://noembed.com/embed?url=https://www.youtube.com/watch?v=' + youTubeID,
       dataType: 'jsonp',
 
-      // https://www.googleapis.com/youtube/v3/videos?id=-30htnn3BM0&key=AIzaSyAMZJhvhaUGqsBuzxWYc8Df8hQz6t2igyA&part=snippet,contentDetails,statistics,status
-
       success: function(data){
-        var thumbnail = data.items[0].snippet.thumbnails.standard.url,
-            title = data.items[0].snippet.title,
-            channelTitle = data.items[0].snippet.channelTitle;
+        var thumbnail = data.thumbnail_url,
+            title = data.title,
+            channelTitle = data.author_name;
 
         // Set card content based on YouTube URL and AWeber list id
         $('#aw-thumbnail').css('background-image', 'url(' + thumbnail + ')');
