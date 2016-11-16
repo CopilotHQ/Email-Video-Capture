@@ -91,6 +91,7 @@ function fillCard() {
         var embeddable = $('#aw-cardContainer').html();
         $('#embedCode textarea').val(embeddable).fadeIn(1200);
 
+        // Hide logo area and fade in corner logo.
         $('#aw-pageTitle').slideUp(200);
         $('#aw-cardContainer').css('opacity', 0)
           .slideDown(400)
@@ -98,6 +99,7 @@ function fillCard() {
             { opacity: 1 },
             { queue: false, duration: 800 }
           );
+        $('.logo--corner').fadeIn(400);
       },
       error: function(jqXHR, textStatus, errorThrown) {
           alert (textStatus, + ' | ' + errorThrown);
