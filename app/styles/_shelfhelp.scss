@@ -1,0 +1,16 @@
+$formborderradius:  6px;
+$formfontsize:      18px;
+$formboxshadow:     rgba(0,0,0,0.1) 0px 7px 6px -5px;
+
+body {
+  background: white;
+  padding: 1em;
+  color: #444;
+  line-height: 1.6;
+  font-size: $formfontsize;
+}
+
+h1,
+p {
+  margin-bottom: $formfontsize;
+}
